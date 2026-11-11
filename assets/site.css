@@ -126,6 +126,31 @@ h1,h2,h3{font-family:Oswald,sans-serif;font-weight:600;letter-spacing:.003em}
 .quiz__b{grid-template-columns:repeat(3,1fr)}.quiz__b .alt{grid-column:1/-1}}
 @media(max-width:560px){.hub{grid-template-columns:1fr}.hero h1{font-size:40px}.lad__c .card{width:36px;height:50px}.lad__c .card__s{font-size:17px}}
 
+/* живость: тренажёр, веер, полосы редкости */
+.quiz .card.is-deal{animation:carddeal .5s cubic-bezier(.25,1.3,.5,1) both;animation-delay:calc(var(--i,0)*55ms)}
+@keyframes carddeal{from{opacity:0;transform:translateY(-26px) rotate(-10deg) scale(.7)}}
+.quiz__h{transition:box-shadow .3s ease,opacity .3s ease,transform .3s ease}
+.quiz__h.is-win{box-shadow:0 0 0 3px var(--gold);transform:scale(1.03)}
+.quiz__h.is-lose{opacity:.45}
+.quiz button.is-ok{background:var(--gold);color:var(--navy);animation:qok .4s ease-out}
+.quiz button.is-bad{background:var(--red);color:#fff;animation:qbad .42s ease-out}
+@keyframes qok{50%{transform:scale(1.07)}}
+@keyframes qbad{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.quiz__score.is-pop{display:inline-block;animation:qpop .45s ease-out}
+@keyframes qpop{40%{transform:scale(1.35)}}
+.quiz__r.is-new{animation:qin .3s ease-out}
+@keyframes qin{from{opacity:0;transform:translateY(5px)}}
+.quiz button.alt.is-next{border-color:var(--gold);animation:qnext 1.8s ease-in-out infinite}
+@keyframes qnext{50%{box-shadow:0 0 0 5px rgba(242,177,52,.25)}}
+#qpromo.on{animation:qpromo .5s .25s both,lbfloat 2.6s 1s ease-in-out infinite}
+@keyframes qpromo{from{opacity:0;transform:translateY(18px)}}
+.fan .card{animation:fanin .8s cubic-bezier(.3,1.25,.5,1) both}
+.fan .card:nth-child(2){animation-delay:.08s}.fan .card:nth-child(3){animation-delay:.16s}.fan .card:nth-child(4){animation-delay:.24s}.fan .card:nth-child(5){animation-delay:.32s}.fan .card:nth-child(6){animation-delay:.4s}
+@keyframes fanin{from{opacity:0;transform:translateY(30px) rotate(0deg)}}
+.js-anim .lad .meter i{transform:scaleX(0);transform-origin:left center;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.js-anim .lad.is-in .meter i{transform:none}
+.js-anim .lad tbody tr:nth-child(1) .meter i{transition-delay:0ms}.js-anim .lad tbody tr:nth-child(2) .meter i{transition-delay:70ms}.js-anim .lad tbody tr:nth-child(3) .meter i{transition-delay:140ms}.js-anim .lad tbody tr:nth-child(4) .meter i{transition-delay:210ms}.js-anim .lad tbody tr:nth-child(5) .meter i{transition-delay:280ms}.js-anim .lad tbody tr:nth-child(6) .meter i{transition-delay:350ms}.js-anim .lad tbody tr:nth-child(7) .meter i{transition-delay:420ms}.js-anim .lad tbody tr:nth-child(8) .meter i{transition-delay:490ms}.js-anim .lad tbody tr:nth-child(9) .meter i{transition-delay:560ms}.js-anim .lad tbody tr:nth-child(10) .meter i{transition-delay:630ms}
+
 /* ---- Lucky Bear: купон ---- */
 .lbc{--cut:136px;display:grid;grid-template-columns:var(--cut) 1fr;margin:36px 0;border-radius:16px;background:var(--lb-body);color:var(--lb-ink);
  -webkit-mask:radial-gradient(circle 12px at var(--cut) 0,#0000 97%,#000) top/100% 51% no-repeat,radial-gradient(circle 12px at var(--cut) 100%,#0000 97%,#000) bottom/100% 51% no-repeat;
